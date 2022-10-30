@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `travelagency`.`knowledgeoflanguages`;
+DROP TABLE IF EXISTS `travelagency`.`languages`;
+DROP TABLE IF EXISTS `travelagency`.`payments`;
+DROP TABLE IF EXISTS `travelagency`.`customers`;
+DROP TABLE IF EXISTS `travelagency`.`enrollments`;
+DROP TABLE IF EXISTS `travelagency`.`participants`;
+DROP TABLE IF EXISTS `travelagency`.`reviews`;
+DROP TABLE IF EXISTS `travelagency`.`delegations`;
+DROP TABLE IF EXISTS `travelagency`.`bookings`;
+DROP TABLE IF EXISTS `travelagency`.`tours`;
+DROP TABLE IF EXISTS `travelagency`.`attractions`;
+DROP TABLE IF EXISTS `travelagency`.`photos`;
+DROP TABLE IF EXISTS `travelagency`.`employee`;
+DROP TABLE IF EXISTS `travelagency`.`institutions`;
+DROP TABLE IF EXISTS `travelagency`.`program`;
