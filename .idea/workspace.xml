@@ -4,25 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78cfa973-60de-436d-88f1-8c5601c732ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/MySQLAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/drops.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/inserts.sql" afterDir="false" />
+    <list default="true" id="78cfa973-60de-436d-88f1-8c5601c732ed" name="Changes" comment="Working inserts">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Attraction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Booking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Delegation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Enrollment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Institution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/KnowledgeOfLanguages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Participant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Photo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/model/Tours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/travelagency/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/travelagency/MySQLAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/travelagency/MySQLConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +80,7 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="org.example.travelagency.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.travelagency.Main" />
       <module name="PBD-travel-agency.main" />
       <extension name="coverage">
@@ -93,7 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.org.example.travelagency.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -106,8 +108,16 @@
       <option name="presentableId" value="Default" />
       <updated>1667122597281</updated>
       <workItem from="1667122604369" duration="5047000" />
-      <workItem from="1667127739362" duration="386000" />
+      <workItem from="1667127739362" duration="2591000" />
     </task>
+    <task id="LOCAL-00001" summary="Working inserts">
+      <created>1667128391356</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667128391356</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,5 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Working inserts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working inserts" />
   </component>
 </project>

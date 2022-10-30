@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException, URISyntaxException {
-        var access = new MySQLAccess();
+        var access = new MySQLConnection();
         var file = Main.class.getClassLoader().getResource("inserts.sql");
         access.createSchema(file);
     }
