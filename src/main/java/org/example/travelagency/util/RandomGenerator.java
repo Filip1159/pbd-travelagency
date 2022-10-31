@@ -15,7 +15,7 @@ public class RandomGenerator {
     private static final String[] transportTypes = new String[]{"PLANE", "BUS", "SHIP", "BIKE", "ON FOOT", "ROCKET", "TRAIN", "SKATEBOARD", "SUBMARINE"};
 
     public static String randomString(int min, int max) {
-        return RandomStringUtils.random(generator.nextInt(min, max));
+        return RandomStringUtils.randomAlphabetic(generator.nextInt(min, max));
     }
 
     public static String randomEmail() {
@@ -27,30 +27,30 @@ public class RandomGenerator {
     }
 
     public static String randomLang() {
-        return languages[randomInt(0, languages.length)];
+        return languages[randomInt(0, languages.length-1)];
     }
 
     public static String randomLevel() {
-        return levels[randomInt(0, levels.length)];
+        return levels[randomInt(0, levels.length-1)];
     }
 
     public static String randomTransportType() {
-        return transportTypes[randomInt(0, transportTypes.length)];
+        return transportTypes[randomInt(0, transportTypes.length-1)];
     }
 
     public static String randomRole() {
-        return roles[randomInt(0, roles.length)];
+        return roles[randomInt(0, roles.length-1)];
     }
 
-    public static int randomInt(int min, int max) {
+    public static Integer randomInt(int min, int max) {
         return generator.nextInt(min, max);
     }
 
-    public static short randomShort(int min, int max) {
+    public static Short randomShort(int min, int max) {
         return (short) generator.nextInt(min, max);
     }
 
-    public static float randomFloat(int min, int max) {
+    public static Float randomFloat(int min, int max) {
         var f = generator.getRandomGenerator().nextFloat();
         return min + f * (max - min);
     }

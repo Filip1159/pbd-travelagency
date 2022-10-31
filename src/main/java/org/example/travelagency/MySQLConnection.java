@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
@@ -14,13 +15,42 @@ public class MySQLConnection {
     private final Connection connection;
 
     public MySQLConnection() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://root:root@localhost:3306/travelagency?allowMultiQueries=true");
+        connection = DriverManager.getConnection("jdbc:mysql://root:root@localhost:3306/travelagency?allowMultiQueries=true&useUnicode=true");
     }
 
-    public void createSchema(URL filename) throws IOException, SQLException, URISyntaxException {
+    public void createSchema() throws SQLException, IOException, URISyntaxException {
+        executeUpdate(Main.class.getClassLoader().getResource("inserts.sql"));
+    }
+
+    public void deleteSchema() throws SQLException, IOException, URISyntaxException {
+        executeUpdate(Main.class.getClassLoader().getResource("drops.sql"));
+    }
+
+    public void executeUpdate(URL filename) throws IOException, SQLException, URISyntaxException {
         var insertQuery = readSqlFileContent(filename);
         var statement = connection.prepareStatement(insertQuery);
         statement.executeUpdate();
+    }
+
+    public void insert(Object o) throws IllegalAccessException, SQLException {
+        var tableName = o.getClass().getSimpleName();
+        var declaredFields = o.getClass().getDeclaredFields();
+        var columnsCount = declaredFields.length;
+        var queryString = String.format("insert into %s values (default", tableName) + ", ?".repeat(columnsCount) + ")";
+        var statement = connection.prepareStatement(queryString);
+        for (int i = 0; i < columnsCount; i++) {
+            declaredFields[i].setAccessible(true);
+            statement.setObject(i + 1, declaredFields[i].get(o));
+        }
+        statement.executeUpdate();
+    }
+
+    public void insertRandom(Class<?> clazz, int rows) throws SQLException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        for (int r = 0; r < rows; r++) {
+            var method = clazz.getMethod("random");
+            var randomInstance = method.invoke(null);
+            insert(randomInstance);
+        }
     }
 
     private String readSqlFileContent(URL path) throws IOException, URISyntaxException {

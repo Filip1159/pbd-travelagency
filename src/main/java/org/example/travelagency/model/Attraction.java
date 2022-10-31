@@ -1,19 +1,21 @@
 package org.example.travelagency.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import static org.example.travelagency.util.RandomGenerator.randomFloat;
 import static org.example.travelagency.util.RandomGenerator.randomString;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 public class Attraction {
     private String title;
     private Float price;
     private String description;
-    private Long fk_program_id;
-    private Long fk_institution_id;
+    private long fk_program_id;
+    private long fk_institution_id;
 
     public static Attraction random() {
         return new Attraction(
