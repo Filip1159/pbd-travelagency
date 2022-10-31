@@ -2,6 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/travelagency/MySQLConnection.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/drops.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/inserts.sql" dialect="MySQL" />
   </component>
 </project>

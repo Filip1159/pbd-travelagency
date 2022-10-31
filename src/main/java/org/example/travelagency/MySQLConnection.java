@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
@@ -43,14 +42,6 @@ public class MySQLConnection {
             statement.setObject(i + 1, declaredFields[i].get(o));
         }
         statement.executeUpdate();
-    }
-
-    public void insertRandom(Class<?> clazz, int rows) throws SQLException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        for (int r = 0; r < rows; r++) {
-            var method = clazz.getMethod("random");
-            var randomInstance = method.invoke(null);
-            insert(randomInstance);
-        }
     }
 
     private String readSqlFileContent(URL path) throws IOException, URISyntaxException {

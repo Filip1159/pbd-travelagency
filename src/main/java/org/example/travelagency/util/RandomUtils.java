@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RandomGenerator {
+public class RandomUtils {
     private static final RandomDataGenerator generator = new RandomDataGenerator();
     private static final String[] roles = new String[]{"DRIVER", "LIFEGUARD", "GUIDE", "GUARDIAN", "TRANSLATOR", "ANIMATOR", "RESIDENT", "MANAGER"};
     private static final String[] languages = new String[]{"POLISH", "ENGLISH", "FRENCH", "SPANISH", "GERMAN", "RUSSIAN", "CHINESE", "ITALIAN", "GREEK", "PORTUGUESE"};

@@ -2,12 +2,15 @@ package org.example.travelagency.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.example.travelagency.DependsOn;
+import org.example.travelagency.Optional;
 
-import static org.example.travelagency.util.RandomGenerator.randomShort;
-import static org.example.travelagency.util.RandomGenerator.randomString;
+import static org.example.travelagency.util.RandomUtils.randomShort;
+import static org.example.travelagency.util.RandomUtils.randomString;
 
 @Data
 @AllArgsConstructor
+@DependsOn(Institution.class)
 public class Employee {
     private String document_nr;
     private String surname;
@@ -19,7 +22,7 @@ public class Employee {
     private String password;
     private Long fk_institution_id;
 
-    public static Employee random() {
+    public static Employee random(@Optional Long fk_institution_id) {
         return new Employee(
                 randomString(10, 13),
                 randomString(5, 15),
@@ -29,7 +32,7 @@ public class Employee {
                 randomString(10, 20),
                 randomString(10, 20),
                 randomString(8, 20),
-                0L
+                fk_institution_id
             );
     }
 }

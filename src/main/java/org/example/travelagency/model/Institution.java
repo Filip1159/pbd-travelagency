@@ -3,8 +3,8 @@ package org.example.travelagency.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import static org.example.travelagency.util.RandomGenerator.randomString;
-import static org.example.travelagency.util.RandomGenerator.randomTel;
+import static org.example.travelagency.util.RandomUtils.randomString;
+import static org.example.travelagency.util.RandomUtils.randomTel;
 
 @Data
 @AllArgsConstructor
