@@ -31,17 +31,23 @@ public class MySQLConnection {
         statement.executeUpdate();
     }
 
-    public void insert(Object o) throws IllegalAccessException, SQLException {
-        var tableName = o.getClass().getSimpleName();
-        var declaredFields = o.getClass().getDeclaredFields();
+    public void insert(Object[] objects) throws IllegalAccessException, SQLException {
+        System.out.println("start insert");
+        var tableName = objects[0].getClass().getSimpleName();
+        var declaredFields = objects[0].getClass().getDeclaredFields();
+        for (var field : declaredFields) field.setAccessible(true);
         var columnsCount = declaredFields.length;
         var queryString = String.format("insert into %s values (default", tableName) + ", ?".repeat(columnsCount) + ")";
         var statement = connection.prepareStatement(queryString);
-        for (int i = 0; i < columnsCount; i++) {
-            declaredFields[i].setAccessible(true);
-            statement.setObject(i + 1, declaredFields[i].get(o));
+        System.out.println("prep statement");
+        for (var o : objects) {
+            for (int i = 0; i < columnsCount; i++)
+                statement.setObject(i + 1, declaredFields[i].get(o));
+            statement.addBatch();
         }
-        statement.executeUpdate();
+        System.out.println("start executing");
+        statement.executeLargeBatch();
+        System.out.println("end insert");
     }
 
     private String readSqlFileContent(URL path) throws IOException, URISyntaxException {

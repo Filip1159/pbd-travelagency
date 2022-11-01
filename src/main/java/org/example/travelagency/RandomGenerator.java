@@ -19,7 +19,7 @@ public class RandomGenerator {
 
     private final Map<Class<?>, Integer> itemsPerTable = new HashMap<>();
 
-    public RandomGenerator(MySQLConnection mysql) throws SQLException {
+    public RandomGenerator(MySQLConnection mysql) {
         this.mySql = mysql;
         itemsPerTable.put(Attraction.class, 0);
         itemsPerTable.put(Booking.class, 0);
@@ -74,17 +74,21 @@ public class RandomGenerator {
     }
 
     public void insertRandom(Class<?> clazz, int rows) throws SQLException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        System.out.println("start random");
+        var insertBatch = new Object[rows];
         for (int r = 0; r < rows; r++) {
             var keys = prepareForeignKeysFor(clazz);
             var method = findRandomGeneratorMethod(clazz, keys.size());
             removeRandomOptionalForeignKeys(method.getParameterAnnotations(), keys);
             var randomInstance = method.invoke(null, keys.toArray());
-            mySql.insert(randomInstance);
-            increment(clazz);
+            insertBatch[r] = randomInstance;
         }
+        mySql.insert(insertBatch);
+        increment(clazz, rows);
+        System.out.println("end random");
     }
 
-    private void increment(Class<?> clazz) {
-        itemsPerTable.put(clazz, itemsPerTable.get(clazz) + 1);
+    private void increment(Class<?> clazz, int by) {
+        itemsPerTable.put(clazz, itemsPerTable.get(clazz) + by);
     }
 }
