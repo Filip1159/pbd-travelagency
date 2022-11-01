@@ -16,7 +16,7 @@ public class Program {
     private String description;
 
     public static Program random() {
-        var p = new Program(
+        return new Program(
                 randomString(10, 30),
                 randomInt(7, 14),
                 randomTransportType(),
@@ -24,7 +24,5 @@ public class Program {
                 randomShort(0, 1),
                 randomString(400, 2000)
         );
-        System.out.println(p);
-        return p;
     }
 }

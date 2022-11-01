@@ -15,6 +15,11 @@ public class MySQLConnection {
 
     public MySQLConnection() throws SQLException {
         connection = DriverManager.getConnection("jdbc:mysql://root:root@localhost:3306/travelagency?allowMultiQueries=true&useUnicode=true");
+        connection.setAutoCommit(false);
+    }
+
+    public void disconnect() throws SQLException {
+        connection.close();
     }
 
     public void createSchema() throws SQLException, IOException, URISyntaxException {
@@ -47,6 +52,7 @@ public class MySQLConnection {
         }
         System.out.println("start executing");
         statement.executeLargeBatch();
+        connection.commit();
         System.out.println("end insert");
     }
 
